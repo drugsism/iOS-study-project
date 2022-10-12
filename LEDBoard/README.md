@@ -29,7 +29,7 @@ func popViewController(animated: Bool) -> UIViewContoller?
 3. 화면전환용 객체 세그웨이(segue)를 사용하여 화면 전환
 - ViewController사이의 화면 객체.
 - 출발점과 목적지를 지정하여 화면을 전환, 스토리보드로 구현가능
- 1) Action Segueway - 버튼 등 액션 트리거를 통해 화면전환
+	- Action Segueway - 버튼 등 액션 트리거를 통해 화면전환
    1) show - 가장 일반적으로 사용 NvigationC 사용가능
    2) show Detail - 아애패드에서는 스플릿구조로 사용
    3) present Modally - 이전 뷰컨트롤러를 덮는다
