@@ -1,12 +1,12 @@
 ### Segue(화면전환)
 1.  ViewController에서 다른 ViewController 호출
-	- 기존 ViewC위에 다른 viewC를 덮는 형식(<> 걷어내는)
-	1) present 
+ - 기존 ViewC위에 다른 viewC를 덮는 형식(<> 걷어내는)
+ 1) present 
 	
 ```swift
 func presnt(_ viewControllerToPresentL UIViewController, animated flag: Bool. comletion: (() -> void)? = nil)
 ```
-	2) dismiss
+ 2) dismiss
 
 ```swift
 func dismiss(animated flag: Bool. comletion: (() -> void)? = nil)
@@ -29,12 +29,12 @@ func popViewController(animated: Bool) -> UIViewContoller?
 3. 화면전환용 객체 세그웨이(segue)를 사용하여 화면 전환
 - ViewController사이의 화면 객체.
 - 출발점과 목적지를 지정하여 화면을 전환, 스토리보드로 구현가능
-	1) Action Segueway - 버튼 등 액션 트리거를 통해 화면전환
-		1) show - 가장 일반적으로 사용 NvigationC 사용가능
-		2) show Detail - 아애패드에서는 스플릿구조로 사용
-		3) present Modally - 이전 뷰컨트롤러를 덮는다
-		4) Present As Popover - 아이패드에서 팝업
-		5) Custom - 커스텀
+ 1) Action Segueway - 버튼 등 액션 트리거를 통해 화면전환
+   1) show - 가장 일반적으로 사용 NvigationC 사용가능
+   2) show Detail - 아애패드에서는 스플릿구조로 사용
+   3) present Modally - 이전 뷰컨트롤러를 덮는다
+   4) Present As Popover - 아이패드에서 팝업
+   5) Custom - 커스텀
 <br><br>
 
 ### View간 데이터 전달
