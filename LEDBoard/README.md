@@ -2,10 +2,12 @@
 1.  ViewController에서 다른 ViewController 호출
 	- 기존 ViewC위에 다른 viewC를 덮는 형식(<> 걷어내는)
 	1) present 
+	
 ```swift
 func presnt(_ viewControllerToPresentL UIViewController, animated flag: Bool. comletion: (() -> void)? = nil)
 ```
 	2) dismiss
+
 ```swift
 func dismiss(animated flag: Bool. comletion: (() -> void)? = nil)
 ```
