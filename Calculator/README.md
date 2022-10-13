@@ -2,6 +2,7 @@
 
 ### UIStackView
 > 열 또는 행에 View들의 묶음을 배치할 수 있는 간소화된 인터페이스
+
 1. Axis
 	- stackView의 방향을 결정(가로 또는 세로) 하는 속성
 2. Distribution
@@ -23,6 +24,10 @@
 		8. Last Baseline
 4. Spaicing
 	- StackView안의 서브뷰들간의 간격을 조정하는 속성
+
+<br />
+<image src="https://user-images.githubusercontent.com/16550019/195497551-b0ebee43-1231-47d3-b8c4-199e16f92192.png" width="500" />
+<br />
 
 ### IBDesignables
 >코드로 구현하여 컴파일 시점에서 적용될 속성을 실시간으로 스토리보드 상에 렌더링해준다.
