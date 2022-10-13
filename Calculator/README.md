@@ -35,3 +35,12 @@
 
 ### IBInspectable
 >커스텀한 UIView컨포넌트에서 inspector창을 이용해서 보다 쉽게 속성을 적용하도록 하는 어노테이션
+
+---
+###
+- enum Operation으로 각 버튼 별 operation 정의하고 버튼 액션에서 계산 속성에 대입하면서 로직을 구현
+- RoundButton class를 만들고 @IBInspectable var isRound속성을 ispector에서 설정하도록 didSet으로 변경이 있을 경우 Round버튼으로 만든다.
+	- @IBDesignable을 선언하여 스토리보드에 적용되어보이도록 한다.  
+
+
+
