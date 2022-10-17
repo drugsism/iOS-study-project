@@ -16,3 +16,13 @@
 
 ### [4. To-Do List](https://github.com/drugsism/iOS-study-project/blob/main/To-Do%20List)
 - UITableView를 사용한 TableView의 데이터 추가, 삭제, 재정렬 및 UserDefaults사용 예제
+
+### [5. Diary](https://github.com/drugsism/iOS-study-project/blob/main/Diary)
+- Diary 앱 구현을 통한 UITabBar 클래스를 사용한 각 화면 전환 및 Collection UI 구성 예제 
+- UITabBarContoller
+- UICollectionView
+  - UICollectionViewLayout
+  - UICollectionViewFlowLayout
+  
+ 
+ 
