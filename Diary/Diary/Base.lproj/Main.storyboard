@@ -130,10 +130,10 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="oJU-SH-Yqm">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="oJU-SH-Yqm" customClass="DiaryCell" customModule="Diary" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="180" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="O0h-nW-L60" customClass="DiaryCell" customModule="Diary" customModuleProvider="target">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="O0h-nW-L60">
                                             <rect key="frame" x="0.0" y="0.0" width="180" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -161,6 +161,10 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="180" height="200"/>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="U2B-zz-cda" id="sgL-ED-APj"/>
+                                            <outlet property="titleLabel" destination="Ux8-Rh-vmi" id="Vvy-qM-cDX"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -181,6 +185,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="collectinView" destination="qBu-Tg-3vK" id="vgg-xe-xTb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -189,7 +196,7 @@
         <!--Write Diary-->
         <scene sceneID="yLp-ss-FpR">
             <objects>
-                <viewController id="5ta-lS-m13" sceneMemberID="viewController">
+                <viewController id="5ta-lS-m13" customClass="WriteDiaryViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Sl6-4N-09f">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -257,8 +264,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Write Diary" id="JAR-6A-HPw">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="Xbr-GY-i83"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="Xbr-GY-i83">
+                            <connections>
+                                <action selector="tabConfirmButton:" destination="5ta-lS-m13" id="Pz9-vW-dDr"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="confirmButton" destination="Xbr-GY-i83" id="Mqb-kV-4Mc"/>
+                        <outlet property="contentsTextView" destination="pxC-EG-NJN" id="w3e-I4-7ls"/>
+                        <outlet property="dateTextField" destination="aZt-Yj-bAD" id="I5r-1n-Z5l"/>
+                        <outlet property="titleTextField" destination="Qsf-82-bEt" id="ypr-I3-IWG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lN4-Ii-51F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
