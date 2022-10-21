@@ -60,7 +60,7 @@ class WriteDiaryViewController: UIViewController {
 		
 	}
 	
-	//Validation을 위해 Delegate연결 - extention에 선언
+	//2-2-1)Validation을 위해 Delegate연결 - extention에 선언
 	private func configureInputField() {
 		self.contentsTextView.delegate = self
 		
@@ -90,11 +90,11 @@ class WriteDiaryViewController: UIViewController {
 		self.navigationController?.popViewController(animated: true)
 	}
 	
-	//2-2-1)datePicker에서 값이 변경되었을때 실행하는 함수구현
+	//datePicker에서 값이 변경되었을때 실행하는 함수구현
 	@objc private func datePickerValueDidChange(_ datePicker: UIDatePicker) {
 		//날짜 포맷을 설정한다
 		let formatter = DateFormatter()
-		formatter.dateFormat = "yyyy년 MM월 dd일(EEEEE)"
+		formatter.dateFormat = "yyyy.MM.dd(EEEEE)"
 		formatter.locale = Locale(identifier: "ko_KR")
 		self.diaryDate = datePicker.date
 		self.dateTextField.text = formatter.string(from: datePicker.date)
