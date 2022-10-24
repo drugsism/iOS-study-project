@@ -7,7 +7,7 @@
 
 import UIKit
 
-//3-3-1) Delegate를 통해서 DiaryList에 작성된 diary객체를 전달하기 위한 용도
+//3-3-1) Delegate를 통해서 작성된 diary객체를 DiaryList에 전달하기 위한 용도
 protocol WriteDiaryViewDelegate: AnyObject {
 	func didSelectRegister(diary: Diary)
 }

@@ -118,6 +118,20 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
 	}
 }
 
+extension ViewController: UICollectionViewDelegate {
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		guard let viewController = self.storyboard?.instantiateViewController(withIdentifier: "DiaryDetailViewController") as? DiaryDetailViewController else { return }
+		let diary = self.diaryList[indexPath.row]
+		viewController.diary = diary
+		viewController.indexPath = indexPath
+		
+		//5-4)DiaryDetailViewController의 delegate에 접근해서 self대입  - item을 선택했을때
+		viewController.delegate = self
+		
+		self.navigationController?.pushViewController(viewController, animated: true)
+	}
+}
+
 //protocol 채택
 extension ViewController: WriteDiaryViewDelegate {
 	// 작성된 내용이 담겨있는 diary객체를 전달받아 diaryList에 append
@@ -129,5 +143,13 @@ extension ViewController: WriteDiaryViewDelegate {
 		})
 		
 		self.collectinView.reloadData()
+	}
+}
+
+//5-5)삭제를 위한 delegate채택 및 didSelectDelete 구현
+extension ViewController: DiaryDeatilViewDelegate {
+	func didSelectDelete(indexPath: IndexPath) {
+		self.diaryList.remove(at: indexPath.row)
+		self.collectinView.deleteItems(at: [indexPath])
 	}
 }

@@ -196,7 +196,7 @@
         <!--Write Diary-->
         <scene sceneID="yLp-ss-FpR">
             <objects>
-                <viewController id="5ta-lS-m13" customClass="WriteDiaryViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WriteDiaryViewController" id="5ta-lS-m13" customClass="WriteDiaryViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Sl6-4N-09f">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -302,7 +302,7 @@
         <!--Diary Detail View Controller-->
         <scene sceneID="Qx9-Ww-14O">
             <objects>
-                <viewController id="sS4-uo-toQ" customClass="DiaryDetailViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DiaryDetailViewController" id="sS4-uo-toQ" customClass="DiaryDetailViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nwa-rC-hfL">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -324,7 +324,7 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contents" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZ1-Ua-o4w">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contents" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZ1-Ua-o4w" customClass="Dia">
                                 <rect key="frame" x="24" y="147.66666666666666" width="342" height="20.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -361,12 +361,18 @@
                                         <rect key="frame" x="0.0" y="0.0" width="73.333333333333329" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Edit"/>
+                                        <connections>
+                                            <action selector="tapEditButton:" destination="sS4-uo-toQ" eventType="touchUpInside" id="oyq-Jq-Es9"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cII-f4-Ffx">
                                         <rect key="frame" x="123.33333333333334" y="0.0" width="73.333333333333343" height="34.333333333333336"/>
                                         <color key="tintColor" systemColor="systemRedColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Delete"/>
+                                        <connections>
+                                            <action selector="tapDeleteButton:" destination="sS4-uo-toQ" eventType="touchUpInside" id="X6o-0i-X9Y"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -391,10 +397,15 @@
                             <constraint firstItem="JGH-00-bfL" firstAttribute="top" secondItem="DIA-cJ-cr4" secondAttribute="bottom" constant="24" id="z6v-fj-O21"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="contentsTextView" destination="ZZ1-Ua-o4w" id="AlR-y3-1Om"/>
+                        <outlet property="dateLabel" destination="W3E-hu-ah3" id="5N9-Lp-jGP"/>
+                        <outlet property="titleLabel" destination="Be8-DJ-qfE" id="Qez-Jt-ZD6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ye7-Lf-HI3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1125" y="68"/>
+            <point key="canvasLocation" x="1122" y="68"/>
         </scene>
     </scenes>
     <resources>
