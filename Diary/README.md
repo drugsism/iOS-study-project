@@ -50,20 +50,16 @@ Aliases: [test]
 			2. diaryList didSet diaryList프로퍼티 옵저버로 변경시 업데이트 되도록 구현 - saveDiaryList()
 			3. userDefaults에 저장된값을 가져오는 함수 구현 - loadDiaryList()
 			4. viewDidLoad에서 호출
-
-
-### Notes
-- Item
-
-
-
-
----
-
-### Conclusion & Summary
-Highlight ==what’s important!==
-* something
-
----
-### Import Word
-* something:
+	4. Diary 상세보기
+		1. 일기 상세보기화면 IBOutlet, IBAction 연결 - DiaryDetailViewController
+		2. diaryList 에서 전달받을 프로퍼티 선언 - View(Outlet객체)에 초기화
+		3. viewController에서 객체를 이동시키는 코드 작성 
+			1. UICollectionViewDelegate 채택
+			2. didSelectItemAt 구현 - 특정cell이 선택되었음을 알리는 메서드
+				1. 델리게이트를 채택하고 storyboard의 identifier로 view를 연결해서 값을 넘기고 NavigationController에서 view를 push
+	5. Diary 삭제 - Delegate를 통해서 일기장 상세 화면에서 삭제가 일어날때 메서드를 통해 일기장 리스트 화면의 indexpath를 전달하여 diaryList[], CollectionView에서 diary를 삭제
+		1. protocol 선언 및  indexPath전달 메서드 선언
+		2. delegate변수 선언
+		3. 삭제버튼 Action함수에서 didSelectDelete메서드에 indexPath 할당 - NavigationController.popViewController로 전화면으로 이동
+		4. DiaryDetailViewController의 delegate에 접근해서 self대입  - item을 선택했을때
+		5. 삭제를 위한 delegate채택 및 didSelectDelete 구현
