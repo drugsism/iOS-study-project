@@ -25,6 +25,13 @@ class ViewController: UIViewController {
 		self.configureCollectionView()
 		self.loadDiaryList()
 		
+		//6-2-4-4) collrctionView에도 적용이되도록 ViewController Viewdidload()에 옵저빙을 구현한다
+		NotificationCenter.default.addObserver(
+			self,
+			selector: #selector(editDiaryNotification(_:)),
+			name: NSNotification.Name("editDiary"),
+			object: nil
+		)
 	}
 	
 	private func configureCollectionView() {
@@ -36,6 +43,16 @@ class ViewController: UIViewController {
 		//
 		self.collectinView.delegate = self
 		self.collectinView.dataSource = self
+	}
+	
+	@objc func editDiaryNotification(_ notification: Notification) {
+		guard let diary = notification.object as? Diary else { return }
+		guard let row = notification.userInfo?["indexPath.row"] as? Int else { return }
+		self.diaryList[row] = diary
+		self.diaryList = self.diaryList.sorted(by: {
+			$0.date.compare($1.date) == .orderedDescending
+		})
+		self.collectinView.reloadData()
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -119,7 +136,10 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension ViewController: UICollectionViewDelegate {
+	//특정Cell이 선택되었음을 알리는 메서드
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		//스토리보드의 intantiate메서드로 viewController 타입변수를 선언하고
+		//해당 Viewcomtroller의 선언된 변수에 값을 전달
 		guard let viewController = self.storyboard?.instantiateViewController(withIdentifier: "DiaryDetailViewController") as? DiaryDetailViewController else { return }
 		let diary = self.diaryList[indexPath.row]
 		viewController.diary = diary

@@ -51,14 +51,45 @@ class DiaryDetailViewController: UIViewController {
 		return formatter.string(from: date)
 	}
 	
+	@objc func editDiaryNotification(_ notification: Notification) {
+		guard let diary = notification.object as? Diary else { return }
+		guard let row = notification.userInfo?["indexPath.row"] as? Int else { return }
+		self.diary = diary
+		self.configureView()
+	}
+	
+	//6-1) 수정버튼을 tap하면 write화면으로 이동
 	@IBAction func tapEditButton(_ sender: UIButton) {
+		guard let viewController = self.storyboard?.instantiateViewController(withIdentifier: "WriteDiaryViewController") as? WriteDiaryViewController else { return }
 		
+		//6-2-2) 값전달
+		guard let indexPath = self.indexPath else { return }
+		guard let diary = self.diary else { return }
+		viewController.diaryEditeMode = .edit(indexPath, diary)
+	
+		//6-2-4-2)NotificationCenter observing
+		NotificationCenter.default.addObserver(
+			self,
+			selector: #selector(editDiaryNotification(_:)),
+			name: NSNotification.Name("editDiary"),
+			object: nil
+		)
+		
+		
+		
+		navigationController?.pushViewController(viewController, animated: true)
 	}
 	
 	@IBAction func tapDeleteButton(_ sender: UIButton) {
 		guard let indexPath = self.indexPath else { return }
 		self.delegate?.didSelectDelete(indexPath: indexPath)
 		self.navigationController?.popViewController(animated: true)
+	}
+	
+	//6-2-4-3)인스턴스가 deinit 될때 removeObserver를 호출하여 해당 인스턴스에 추가된 옵저버가 모두 제거되게한다.
+	//-> 관찰이 필요없을때
+	deinit {
+		NotificationCenter.default.removeObserver(self)
 	}
 
 }

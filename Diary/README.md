@@ -63,3 +63,32 @@ Aliases: [test]
 		3. 삭제버튼 Action함수에서 didSelectDelete메서드에 indexPath 할당 - NavigationController.popViewController로 전화면으로 이동
 		4. DiaryDetailViewController의 delegate에 접근해서 self대입  - item을 선택했을때
 		5. 삭제를 위한 delegate채택 및 didSelectDelete 구현
+	6. Diary 수정
+		1. 수정버튼을 tap하면 write화면으로 이동
+		2. 수정할 Diary객체를 받을수 있게 write화면에 enum을 선언  
+			1. 선언한 열거형값 초기화
+			2. 상세화면에서 값 전달 
+			3. 수정버튼을 tap했을때 전달 받은 값을 열거형 switch 문으로 각 데이터를 diary 내용 표시
+			4. 수정적용 - confirmButton함수안에서 노티피케이션 센터 구현
+				1. notification center를 이용해서 수정이 일어나면 notification center에 수정된 diary객체를 전달하고 notification center를 구독하고 있는 화면에서 수정된 diary객체를 전달받고 View에도 수정된 내용이 갱신되도록 구현
+				2. 상세화면에서 NotificationCenter를 구독하게 하고 View에 나타나도록 구현
+				3. 인스턴스가 deinit 될때 removeObserver를 호출하여 해당 인스턴스에 추가된 옵저버가 모두 제거되게 한다.
+				4. collrctionView에도 적용이되도록 ViewController Viewdidload()에 옵저빙을 구현한다
+	7. 즐겨찾기
+		1. 상세보기 화면에 barButtonItem을 추가하여 즐겨찾기 버튼을 구성한다
+		2. 버튼을 눌렀을때 toggle하는 기능을 구현한다
+		3. diary에 즐겨찾기가 적용되도록 구현한다 
+			1. DuaryDeatilViewDelegate - didSelectStar
+			2. ViewController - diaryList의 해당 diary의 isStar값을 업데이트 한다.
+		4. 즐겨찾기 탭에 diary 리스트구현
+			1. StarViewController에 outlet 변수 생성 및 연결
+			2. diaryList 변수 생성
+			3. loadStarDiaryList 함수 구현 - UserDefaults에서 값을 불러와서 DiaryList에 넣어준다
+			4. viewWillApper()에 호출한다. -  즐겨찾기 탭을 누를때 가져온다.
+			5. collectionView를 구성한다. - Layout구성, Delegate, Datasource 구현
+		5. 즐겨찾기 리스트에서 diary를 tap하면 상세화면으로 이동하도록 구현
+		6. ! 상세화면에서 삭제 또는 즐겨찾기 토글이 일어나게 되면 delegate를 통해 ViewController에 indexPath와 isStar를 전달하고 있는데
+		   ViewController와 StarViewController에 각각 업데이트 되지 않는다. (즐겨찾기 화면에서 이동하면 ViewContorller에는 변경이 적용되지않는다)
+		   delegate를 NotificationCenter로 변경하여 모두 전달되도록 변경한다
+			1. 
+
