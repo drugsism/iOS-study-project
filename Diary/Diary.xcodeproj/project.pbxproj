@@ -72,15 +72,15 @@
 				A82A31E928F95BCA00D0C32D /* SceneDelegate.swift */,
 				A82A31EB28F95BCA00D0C32D /* ViewController.swift */,
 				A82A31FD28FCF45300D0C32D /* DiaryCell.swift */,
+				A82A320328FE9B8100D0C32D /* DiaryDetailViewController.swift */,
 				A82A31FF28FCF65000D0C32D /* StarViewController.swift */,
 				A82A320128FCF7F000D0C32D /* StarCell.swift */,
-				A82A31ED28F95BCA00D0C32D /* Main.storyboard */,
-				A82A31F028F95BCB00D0C32D /* Assets.xcassets */,
-				A82A31F228F95BCB00D0C32D /* LaunchScreen.storyboard */,
-				A82A31F528F95BCB00D0C32D /* Info.plist */,
-				A82A320328FE9B8100D0C32D /* DiaryDetailViewController.swift */,
 				A8FDF53228FF9792009D142A /* WriteDiaryViewController.swift */,
 				A8FDF53428FFD24E009D142A /* Diary.swift */,
+				A82A31ED28F95BCA00D0C32D /* Main.storyboard */,
+				A82A31F228F95BCB00D0C32D /* LaunchScreen.storyboard */,
+				A82A31F528F95BCB00D0C32D /* Info.plist */,
+				A82A31F028F95BCB00D0C32D /* Assets.xcassets */,
 			);
 			path = Diary;
 			sourceTree = "<group>";
